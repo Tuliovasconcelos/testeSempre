@@ -54,19 +54,3 @@ INSERT INTO planos (nome, velocidade, preco) VALUES
     ('Plano 8 - Sempre Internet', 3000,  249.99),
     ('Plano 9 - Sempre Internet', 5000, 299.99),
     ('Plano 10 - Sempre Internet', 10000, 399.99);
-
-
-
-CREATE TABLE IF NOT EXISTS carrinho (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    id_plano INT,
-    FOREIGN KEY (id_plano) REFERENCES planos(id)
-);
-
-CREATE TABLE IF NOT EXISTS resumo_compra (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    id_carrinho INT,
-    FOREIGN KEY (id_carrinho) REFERENCES carrinho(id),
-    valor_total DECIMAL(10, 2),
-    data_compra TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
