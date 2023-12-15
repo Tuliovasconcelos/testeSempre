@@ -1,0 +1,72 @@
+CREATE DATABASE IF NOT EXISTS ecommerce;
+USE sistema_compras;
+
+CREATE TABLE IF NOT EXISTS ficha_cadastral (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    cpf VARCHAR(14) NOT NULL,
+    rg VARCHAR(20) NOT NULL,
+    data_nascimento DATE,
+    telefone VARCHAR(20),
+    telefone_secundario VARCHAR(20),
+    email VARCHAR(100),
+    endereco VARCHAR(255),
+    bairro VARCHAR(100),
+    numero VARCHAR(10),
+    complemento VARCHAR(100),
+    referencia VARCHAR(255),
+    nome_pai VARCHAR(255),
+    nome_mae VARCHAR(255),
+    estado_civil VARCHAR(20),
+    genero VARCHAR(10),
+    nacionalidade VARCHAR(50),
+    profissao VARCHAR(50),
+    vendedor VARCHAR(50),
+    dia_vencimento INT,
+    observacao TEXT
+);
+
+CREATE TABLE IF NOT EXISTS analise_cobertura (
+    cep VARCHAR(10) PRIMARY KEY,
+    status VARCHAR(20) NOT NULL
+);
+
+INSERT INTO analise_cobertura (cep, status) VALUES
+    ('32010-770', 'Aprovado'),
+    ('32900-000', 'Reprovado');
+
+CREATE TABLE IF NOT EXISTS planos (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    velocidade INT NOT NULL,
+    preco DECIMAL(10, 2) NOT NULL
+);
+
+
+INSERT INTO planos (nome, velocidade, preco) VALUES
+    ('Plano 1 - Sempre Internet', 100, 59.99),
+    ('Plano 2 - Sempre Internet', 200, 79.99),
+    ('Plano 3 - Sempre Internet', 300, 99.99),
+    ('Plano 4 - Sempre Internet', 500, 119.99),
+    ('Plano 5 - Sempre Internet', 1000, 149.99),
+    ('Plano 6 - Sempre Internet', 1500, 179.99),
+    ('Plano 7 - Sempre Internet', 2000, 199.99),
+    ('Plano 8 - Sempre Internet', 3000,  249.99),
+    ('Plano 9 - Sempre Internet', 5000, 299.99),
+    ('Plano 10 - Sempre Internet', 10000, 399.99);
+
+
+
+CREATE TABLE IF NOT EXISTS carrinho (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    id_plano INT,
+    FOREIGN KEY (id_plano) REFERENCES planos(id)
+);
+
+CREATE TABLE IF NOT EXISTS resumo_compra (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    id_carrinho INT,
+    FOREIGN KEY (id_carrinho) REFERENCES carrinho(id),
+    valor_total DECIMAL(10, 2),
+    data_compra TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
