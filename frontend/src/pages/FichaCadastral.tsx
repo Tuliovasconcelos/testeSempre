@@ -236,6 +236,7 @@ const FichaCadastral: React.FC = () => {
                             onChange={handleChange}
                             required
                         >
+                            <option value="">Selecione...</option>
                             <option value="solteiro(a)">Solteiro(a)</option>
                             <option value="casado(a)">Casado(a)</option>
                             <option value="divorciado(a)">Divorciado(a)</option>
@@ -252,6 +253,7 @@ const FichaCadastral: React.FC = () => {
                             onChange={handleChange}
                             required
                         >
+                            <option value="">Selecione...</option>
                             <option value="masculino">Masculino</option>
                             <option value="feminino">Feminino</option>
                             <option value="outro">Outro</option>

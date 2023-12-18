@@ -35,7 +35,7 @@ class CreateFichaCadastralService {
     const cpfExists = await fichaCadastralRepository.findByCpf(cpf);
 
     if (cpfExists) {
-      throw new AppError('CPF já utilizado.');
+      throw new AppError('Já existe um pedido cadastrado para o CPF informado.');
     }
 
     const fichaCadastral = fichaCadastralRepository.create({
