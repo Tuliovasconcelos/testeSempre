@@ -1,6 +1,6 @@
 # Informações do teste
 
-Devido ao pouco tempo para desenvolver o projeto, está em uma estrutura resumida e simples para atender os requisitos da solicitação.
+Esta é uma estrutura resumida e simples para atender os requisitos da solicitação.
 
 ## Backend
 
