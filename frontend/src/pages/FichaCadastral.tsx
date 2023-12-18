@@ -37,8 +37,6 @@ const FichaCadastral: React.FC = () => {
     useEffect(() => {
         const planoId = location.state?.planoId;
 
-        console.log(planoId);
-
         if (planoId !== undefined) {
             setFormData((prevFormData) => ({
                 ...prevFormData,

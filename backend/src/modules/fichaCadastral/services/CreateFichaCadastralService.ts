@@ -99,7 +99,7 @@ class CreateFichaCadastralService {
                     - Observações: ${observacao}
                   `;
 
-    await enviarEmail('destinatario@example.com', 'Solicitação de compra', fichaCadastralSempre);
+    await enviarEmail('tuliorad4@gmail.com', 'Solicitação de compra', fichaCadastralSempre);
 
     return fichaCadastral;
   }

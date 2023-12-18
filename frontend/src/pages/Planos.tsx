@@ -61,9 +61,12 @@ const PlanosPage: React.FC = () => {
     }
   };
 
-  if (redirectToFichaCadastral) {
-    navigate('/fichaCadastral', { state: { planoId: planoSelecionadoId } });
-  }
+  useEffect(() => {
+    if (redirectToFichaCadastral && planoSelecionadoId !== null) {
+      navigate('/fichaCadastral', { state: { planoId: planoSelecionadoId } });
+    }
+  }, [redirectToFichaCadastral, planoSelecionadoId, navigate]);
+
 
   return (
     <PageStructure>

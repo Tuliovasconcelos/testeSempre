@@ -40,14 +40,7 @@ const ResumoCompra: React.FC = () => {
 
     const handleConfirmarCompra = async () => {
         try {
-
-            console.log(formData);
-
-            const apiResponse = await ApiCall.post('/fichaCadastral/', formData, {
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            });
+            const apiResponse = await ApiCall.post('/fichaCadastral/', formData);
 
             if (apiResponse.data) {
                 SweetAlert({
@@ -68,6 +61,7 @@ const ResumoCompra: React.FC = () => {
                 text: 'Ocorreu um erro ao processar sua solicitação.',
                 icon: 'error',
             });
+
         } finally {
             navigate('/');
         }
