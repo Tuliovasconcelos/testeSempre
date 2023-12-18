@@ -3,6 +3,7 @@ import { celebrate, Joi, Segments } from 'celebrate';
 import FichaCadastralController from '../controllers/FichaCadastralController';
 
 const fichaCadastralRouter = Router();
+
 const fichaCadastralController = new FichaCadastralController();
 
 fichaCadastralRouter.post(
@@ -29,7 +30,7 @@ fichaCadastralRouter.post(
       nacionalidade: Joi.string().required(),
       profissao: Joi.string().required(),
       vendedor: Joi.string().required(),
-      dia_vencimento: Joi.number().required(),
+      dia_vencimento: Joi.string().required(),
       observacao: Joi.string().allow(''),
     },
   }),

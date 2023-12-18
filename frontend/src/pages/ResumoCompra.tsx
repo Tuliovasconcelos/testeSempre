@@ -4,6 +4,7 @@ import PageStructure from '../components/PageStructure';
 import { useLocation, useNavigate } from 'react-router-dom';
 import SweetAlert from '../components/SweetAlert';
 import ApiCall from '../services/ApiCall';
+import { AxiosError } from 'axios';
 
 interface Plano {
     id: number;
@@ -40,7 +41,7 @@ const ResumoCompra: React.FC = () => {
 
     const handleConfirmarCompra = async () => {
         try {
-            const apiResponse = await ApiCall.post('/fichaCadastral/', formData);
+            const apiResponse = await ApiCall.post('/fichaCadastral/', JSON.stringify(formData));
 
             if (apiResponse.data) {
                 SweetAlert({
@@ -56,13 +57,19 @@ const ResumoCompra: React.FC = () => {
                 });
             }
         } catch (error) {
+            const axiosError = error as AxiosError;
+
+            const responseData: { message?: string } = axiosError.response?.data || {};
+
+            const errorMessage = responseData.message || 'Erro desconhecido';
+
             SweetAlert({
-                title: 'Erro!',
-                text: 'Ocorreu um erro ao processar sua solicitação.',
+                title: 'Ops!',
+                text: errorMessage,
                 icon: 'error',
             });
-
-        } finally {
+        }
+        finally {
             navigate('/');
         }
     };

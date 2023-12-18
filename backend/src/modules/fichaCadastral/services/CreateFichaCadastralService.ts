@@ -29,6 +29,7 @@ class CreateFichaCadastralService {
     dia_vencimento,
     observacao,
   }: IRequest): Promise<FichaCadastral> {
+
     const fichaCadastralRepository = getCustomRepository(FichaCadastralRepository);
 
     const cpfExists = await fichaCadastralRepository.findByCpf(cpf);
@@ -63,43 +64,43 @@ class CreateFichaCadastralService {
 
     await fichaCadastralRepository.save(fichaCadastral);
 
-    const fichaCadastralSempre: string = `
-                  **Ficha Cadastral para Solicitação de Compra de Plano de Internet - Sempre Internet**
+    // const fichaCadastralSempre: string = `
+    //               **Ficha Cadastral para Solicitação de Compra de Plano de Internet - Sempre Internet**
 
-                  1. **Dados Pessoais:**
-                    - Nome completo: ${nome}
-                    - CPF: ${cpf}
-                    - RG: ${rg}
-                    - Data de nascimento: ${data_nascimento}
-                    - Telefone: ${telefone}
-                    - Telefone secundário: ${telefone_secundario}
-                    - E-mail: ${email}
+    //               1. **Dados Pessoais:**
+    //                 - Nome completo: ${nome}
+    //                 - CPF: ${cpf}
+    //                 - RG: ${rg}
+    //                 - Data de nascimento: ${data_nascimento}
+    //                 - Telefone: ${telefone}
+    //                 - Telefone secundário: ${telefone_secundario}
+    //                 - E-mail: ${email}
 
-                  2. **Endereço Residencial:**
-                    - Endereço: ${endereco}
-                    - Número: ${numero}  Complemento: ${complemento}
-                    - Bairro: ${bairro}|
-                    - Ponto de referência: ${referencia}
+    //               2. **Endereço Residencial:**
+    //                 - Endereço: ${endereco}
+    //                 - Número: ${numero}  Complemento: ${complemento}
+    //                 - Bairro: ${bairro}|
+    //                 - Ponto de referência: ${referencia}
 
-                  3. **Informações Familiares:**
-                    - Nome do pai: ${nome_pai}
-                    - Nome da mãe: ${nome_mae}
+    //               3. **Informações Familiares:**
+    //                 - Nome do pai: ${nome_pai}
+    //                 - Nome da mãe: ${nome_mae}
 
-                  4. **Estado Civil e Dados Adicionais:**
-                    - Estado civil: ${estado_civil}
-                    - Gênero: ${genero}
-                    - Nacionalidade: ${nacionalidade}
-                    - Profissão: ${profissao}
+    //               4. **Estado Civil e Dados Adicionais:**
+    //                 - Estado civil: ${estado_civil}
+    //                 - Gênero: ${genero}
+    //                 - Nacionalidade: ${nacionalidade}
+    //                 - Profissão: ${profissao}
 
-                  5. **Informações Comerciais:**
-                    - Nome do vendedor: ${vendedor}
+    //               5. **Informações Comerciais:**
+    //                 - Nome do vendedor: ${vendedor}
 
-                  6. **Detalhes do Contrato:**
-                    - Dia de vencimento desejado: ${dia_vencimento}
-                    - Observações: ${observacao}
-                  `;
+    //               6. **Detalhes do Contrato:**
+    //                 - Dia de vencimento desejado: ${dia_vencimento}
+    //                 - Observações: ${observacao}
+    //               `;
 
-    await enviarEmail('tuliorad4@gmail.com', 'Solicitação de compra', fichaCadastralSempre);
+    // await enviarEmail('tuliorad4@gmail.com', 'Solicitação de compra', fichaCadastralSempre);
 
     return fichaCadastral;
   }

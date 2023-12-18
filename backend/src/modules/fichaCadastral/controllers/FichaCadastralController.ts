@@ -5,7 +5,6 @@ import { instanceToInstance } from 'class-transformer';
 export default class FichaCadastralController {
 
   public async create(request: Request, response: Response): Promise<Response> {
-
     const {
       nome,
       cpf,
