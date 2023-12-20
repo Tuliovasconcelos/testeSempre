@@ -6,7 +6,7 @@ Esta é uma estrutura resumida e simples para atender os requisitos da solicita�
 
 ### Informações
 
-A aplicação foi desenvolvida utilizando Node.js, ExpressJS, TypeScript, TypeORM, Mysql e Celebrate.
+A aplicação foi desenvolvida utilizando Node.js, ExpressJS, TypeScript, TypeORM, Mysql, Celebrate e Swagger para doc.
 Altere os dados de autenticação de envio do e-mail contendo o resumo de pedido.
 
 ### Instalação e execução
