@@ -1,5 +1,5 @@
 import swaggerJsdoc from 'swagger-jsdoc';
-import swaggerUi from 'swagger-ui-express'; // Adicione esta linha
+import swaggerUi from 'swagger-ui-express';
 
 const options = {
   definition: {
@@ -11,9 +11,9 @@ const options = {
     },
   },
   apis: [
-    './src/modules/fichaCadastral/routes/fichaCadastral.routes.ts',
-    './src/modules/analiseCobertura/routes/analiseCobertura.routes.ts',
-    './src/modules/planos/routes/planos.routes.ts',
+    './src/modules/fichaCadastral/swagger/fichaCadastralSwagger.ts',
+    './src/modules/analiseCobertura/swagger/analiseCoberturaSwagger.ts',
+    './src/modules/planos/swagger/planosSwagger.ts',
   ],
 };
 
